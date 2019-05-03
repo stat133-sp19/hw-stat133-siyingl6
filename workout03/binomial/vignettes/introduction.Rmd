@@ -1,0 +1,171 @@
+---
+title: "Getting Started with binomial"
+author: "Siying Liu"
+date: "2019.04.30"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to binomial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+library(binomial)
+```
+
+## Binomial distribution
+
+The package `"binomial"` is a implementation of functions for calculating probabilities of a Binomial random variable about the number of successes in a fixed number of random trials performed under identical conditions, and related calculations such as the probability distribution, cumulative distribution, and the expected value, variance, mode, skewness and kurtosis etc. 
+
+
+### Number of combinations
+
+`bin_choose()` takes two arguments: 
+number of succeses k, number of trials n.
+
+You can use function `bin_choose()` to get the number of combinations in which k successes can occur in n trials.
+
+```{r}
+num_combination <- bin_choose(n = 5, k = 2)
+num_combination
+```
+
+### Probability
+
+`bin_probability()` takes three arguments: 
+number of succeses, number of trials, probability for each trial.
+
+You can use function `bin_probability()` to get the probability of getting k successes in n trials.
+
+`bin_probability()` will check whether all the arguments are valid, and will return an error message if there is any invalid input.
+
+```{r}
+prob <- bin_probability(success = 2, trials = 5, prob = 0.5)
+prob
+```
+
+### Probability Distribution
+
+`bin_distribution()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_distribution()` to get the probability distribution of getting different number of successes in n trials.
+
+The output will be a data.frame with two classes : c("bindis", "data.frame")
+
+```{r}
+prob_dis <- bin_distribution(trials = 5, prob = 0.5)
+prob_dis
+```
+
+The `plot.bindis()` function gives you a barplot to display the probability histogram of a binomial distribution object "bindis"
+```{r}
+plot(prob_dis)
+```
+
+
+### Cumulative Probability Distribution
+
+`bin_cumulative()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_cumulative()` to get the cumulative distribution of getting different number of successes in n trials.
+
+The output will be a data.frame with two classes : c("bincum", "data.frame")
+
+```{r}
+cum_dis <- bin_cumulative(trials = 5, prob = 0.5)
+cum_dis
+```
+
+The `plot.bincum()` function gives you a plot of the cumulative distribution in an object "bincum"
+```{r}
+plot(cum_dis)
+```
+
+
+### Variables
+
+`bin_variable()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_variable()` to get the variables of a binomial distribution.
+
+The output will be an object of class "binvar", a binomial random variable object.
+
+`bin_variable()` will check whether all the arguments are valid, and will return an error message if there is any invalid input.
+
+The `print.binvar()` function gives you a nice print of the content of an object "binvar"
+```{r}
+bin_var <- bin_variable(trials = 10, p = 0.3)
+bin_var
+```
+
+The `summary.binvar()` function takes an object of class "binvar", returned output is a list of class "summary.binvar" containing named elements.
+
+The `print.summary.binvar()` function nicely print the contents of an object "summary.binvar"
+```{r}
+binsum1 <- summary(bin_var)
+binsum1
+```
+
+
+## Functions of measures
+package also contain main functions for each of teh summary measures
+
+### Mean
+`bin_mean()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_mean()` to get the expected value or mean for a binomial distribution, this is the expected number of successes in n trials.
+
+```{r}
+mean <- bin_mean(10, 0.3)
+mean
+```
+
+### Variance
+`bin_variance()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_variance()` to get the variance for a binomial distribution.
+
+```{r}
+variance <- bin_variance(10, 0.3)
+variance
+```
+
+### Mode
+`bin_mode()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_mode()` to get the mode for a binomial distribution, the most likely number of success in n dependent trials with probability p of sucess one each trial.
+
+```{r}
+mode <- bin_mode(10, 0.3)
+mode
+```
+
+### Skewness
+`bin_skewness()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_skewness()` to get the skewness for a binomial distribution, a measure of asymmetry of the probability distribution fo a random variable about its mean
+
+```{r}
+skewness <- bin_skewness(10, 0.3)
+skewness
+```
+
+### Kurtosis
+`bin_kurtosis()` takes two arguments: 
+number of trials, probability for each trial.
+
+You can use function `bin_kurtosis()` to get the kurtosis for a binomial distribution, a measure of the "tailedness" of the probability distribution of a random variable.
+
+```{r}
+kurtosis <- bin_kurtosis(10, 0.3)
+kurtosis
+```
+
