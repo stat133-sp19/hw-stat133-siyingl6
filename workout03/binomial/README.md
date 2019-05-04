@@ -1,14 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-```{r, echo = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  comment = "#>",
-  fig.path = "README-"
-)
-```
-
-
 ## Overview
 
 The package `"binomial"` is a [R](http://www.r-project.org/) package 
