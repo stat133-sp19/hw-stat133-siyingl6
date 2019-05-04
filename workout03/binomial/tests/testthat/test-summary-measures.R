@@ -22,6 +22,7 @@ test_that("aux_mean with right answer", {
   expect_equal(aux_mean(3, 0.95), 2.85)
 })
 
+
 # aux_variance()
 test_that("aux_variance with right type", {
   expect_type(aux_variance(1, 0.5), "double")
@@ -43,6 +44,7 @@ test_that("aux_variance with right answer", {
   expect_equal(aux_variance(3, 0.95), 0.1425)
 })
 
+
 # aux_mode()
 test_that("aux_mode with right type", {
   expect_type(aux_mode(1, 0.5), "double")
@@ -63,6 +65,7 @@ test_that("aux_mode with right answer", {
   expect_equal(aux_mode(1, 0.5), c(1, 0))
   expect_equal(aux_mode(3, 0.95), 3)
 })
+
 
 # aux_skewness()
 test_that("aux_skewness with right type", {

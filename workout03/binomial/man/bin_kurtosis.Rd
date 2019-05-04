@@ -15,7 +15,8 @@ bin_kurtosis(trials, prob)
 kurtosis of a binomial distribution
 }
 \description{
-generate the kurtosis of a binomial distrbution
+generate the kurtosis of a binomial distrbution, a measure of the
+"tailedness" of the probability distribution of a random variable
 }
 \examples{
 bin_kurtosis(10, 0.3)

@@ -15,7 +15,8 @@ bin_mode(trials, prob)
 mode of a binomial distribution
 }
 \description{
-generate the mode of a binomial distrbution
+generate the mode of a binomial distrbution, the most likely number of success
+in n trials with probability p of success on each trial
 }
 \examples{
 bin_mode(10, 0.3)

@@ -65,7 +65,7 @@ aux_mode <- function(trials, prob){
 # calculate the skewness of a binomial distribution
 aux_skewness <- function(trials, prob){
   variance <-  trials * prob * (1 - prob)
-  skewness = (1 - 2 * prob)/ sqrt(variance)
+  skewness = (1 - 2 * prob) / sqrt(variance)
   return(skewness)
 }
 
@@ -73,7 +73,7 @@ aux_skewness <- function(trials, prob){
 aux_kurtosis <- function(trials, prob){
   variance <-  trials * prob * (1 - prob)
   kurtosis <- (1 - 6 * prob * (1 - prob)) / variance
-  return (kurtosis)
+  return(kurtosis)
 }
 
 
@@ -111,7 +111,6 @@ bin_choose <- function(n, k){
 #' bin_probability(success = 0:2, trials = 5, prob = 0.5)
 #' bin_probability(success = 55, trials = 100, prob = 0.45)
 #'
-
 bin_probability <- function(success, trials, prob){
   check_trials(trials)
   check_prob(prob)
@@ -304,7 +303,8 @@ bin_variance <- function(trials, prob){
 }
 
 #' @title bin_mode
-#' @description generate the mode of a binomial distrbution
+#' @description generate the mode of a binomial distrbution, the most likely number of success
+#' in n trials with probability p of success on each trial
 #' @param trials number of random trials
 #' @param prob probability of successes
 #' @return mode of a binomial distribution
@@ -321,7 +321,8 @@ bin_mode <- function(trials, prob){
 
 
 #' @title bin_skewness
-#' @description generate the skewness of a binomial distrbution
+#' @description generate the skewness of a binomial distrbution, a measure of the
+#' asymmetry of the probability distribution of a random variable about its mean.
 #' @param trials number of random trials
 #' @param prob probability of successes
 #' @return skewness of a binomial distribution
@@ -337,7 +338,8 @@ bin_skewness <- function(trials, prob){
 }
 
 #' @title bin_kurtosis
-#' @description generate the kurtosis of a binomial distrbution
+#' @description generate the kurtosis of a binomial distrbution, a measure of the
+#' "tailedness" of the probability distribution of a random variable
 #' @param trials number of random trials
 #' @param prob probability of successes
 #' @return kurtosis of a binomial distribution

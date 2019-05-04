@@ -15,7 +15,8 @@ bin_skewness(trials, prob)
 skewness of a binomial distribution
 }
 \description{
-generate the skewness of a binomial distrbution
+generate the skewness of a binomial distrbution, a measure of the
+asymmetry of the probability distribution of a random variable about its mean.
 }
 \examples{
 bin_skewness(10, 0.3)

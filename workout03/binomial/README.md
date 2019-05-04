@@ -1,27 +1,33 @@
-
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
 
 ## Overview
 
 The package `"binomial"` is a [R](http://www.r-project.org/) package 
 that provides function of a binomial distribution.
 
-* `bin_choose()` generates the number of combinations in which k successes can occur in n trials.
-* `bin_probability()` generates the probability of getting k successes in n trials.
-* `bin_distribution()` generates the probability distribution of getting different number of successes in n trials.
-* `plot.bindis()` function gives you a `plot()` method which generates a barplot to display the probability histogram of a binomial distribution object "bindis".
-* `bin_cumulative()` generates the cumulative distribution of getting different number of successes in n trials.
-* `plot.bincum()` method for a "bincum" object.
-* `bin_variable()` generates the variables of a binomial distribution.
-* `print.binvar()` method for a "binvar" object.
-* `summary.binvar()` method for a "binvar" object.
-* `print.summary.binvar()` method for a "summary.binvar" object.
+* `bin_choose()` generates the number of combinations in which k successes can occur in n trials in a binomial distribution.
+* `bin_probability()` generates the probability of getting k successes in n trials in a binomial distribution.
+* `bin_distribution()` generates the probability distribution of a binomial distribution.
+* `bin_cumulative()` generates the cumulative distribution of a binomial distribution.
+* `plot()` method for a `"bindis"` object to generate a barplot to display the probability histogram.
+* `plot()` method for a `"bincum"` object to generate a scatter plot of the cumulative distribution.
+* `summary()` method for a `"binvar"` object to generate a list of the summary output.
 
-* `bin_mean()` generates the expected value or mean for a binomial distribution
-* `bin_variance()` generates the variance for a binomial distribution.
-* `bin_mode()` generates the mode for a binomial distribution,
-* `bin_skewness()` generates the skewness for a binomial distribution
-* `bin_kurtosis()` generates the kurtosis for a binomial distribution
+* `bin_mean()` generates the expected value or mean of a binomial distribution.
+* `bin_variance()` generates the variance of a binomial distribution.
+* `bin_mode()` generates the mode of a binomial distribution.
+* `bin_skewness()` generates the skewness of a binomial distribution
+* `bin_kurtosis()` generates the kurtosis of a binomial distribution.
+
 
 ## Motivation
 
@@ -32,7 +38,6 @@ behind the creation of an R package.
 ## Installation
 
 Install the development version from GitHub via the package `"devtools"`:
-
 
 ```{r}
 # development version from GitHub:
@@ -47,22 +52,27 @@ devtools::install_github("siyingl6/binomial", build_vignettes = TRUE)
 
 ```{r}
 library(binomial)
+
 # number of combination
 num_combination <- bin_choose(n = 5, k = 2)
 num_combination
+
 # probability
 prob <- bin_probability(success = 2, trials = 5, prob = 0.5)
 prob
+
 # probability distribution
 prob_dis <- bin_distribution(trials = 5, prob = 0.5)
 prob_dis
 # barplot of probability distribution
 plot(prob_dis)
+
 # cumulative distribution
 cum_dis <- bin_cumulative(trials = 5, prob = 0.5)
 cum_dis
 # scatter plot of cumulative distribution
 plot(cum_dis)
+
 # variables
 bin_var <- bin_variable(trials = 10, p = 0.3)
 bin_var
@@ -73,15 +83,19 @@ binsum1
 # mean
 mean <- bin_mean(10, 0.3)
 mean
+
 # variance
 variance <- bin_variance(10, 0.3)
 variance
+
 # mode
 mode <- bin_mode(10, 0.3)
 mode
+
 # skewness
 skewness <- bin_skewness(10, 0.3)
 skewness
+
 # kurtosis
 kurtosis <- bin_kurtosis(10, 0.3)
 kurtosis
